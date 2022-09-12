@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nano-video video{
+    width: 100%;
+    /* height:fit-content!important; */
+    position: absolute;
+    /* width: 100%; height: 100%; position: absolute; left: 50%;  transform: translate(-50%, -50%) scaleX(1) scaleY(1) rotate(0deg); */
+}
