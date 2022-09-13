@@ -62,7 +62,13 @@
       class="bg-contain bg-no-repeat fixed h-full w-full bg-center table-select top-0 left-0 sm:bg-cover">
       <div class="h-full grid grid-rows-3 grid-cols-3 gap-4">
         <div class="row-start-2 row-span-1 col-span-1" @click="select_table">
-          <div class="w-20 h-20 rounded-full ml-10 border-2 border-yellow-400 bg-black"></div>
+          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full ml-10 border-2 border-yellow-400 bg-black">
+            <div class="h-full pt-0.5 pb-0.5 grid grid-rows-3 text-center">
+              <div>table1</div>
+              <div>limit</div>
+              <div>0.5~200</div>
+            </div>
+          </div>
         </div>
         <div></div>
       </div>
