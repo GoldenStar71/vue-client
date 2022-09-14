@@ -34,11 +34,17 @@ export default new Vuex.Store({
     ,
     activeTab:'',
     showMenu:false,
+    showMessage:false,
+    showGraph:false,
+    showHistory:false,
+    showChart:false,
     loginAction:"",
     historyData:[],
     lastBetInfo:null, // array [{bet_code:'PL1',bet_amount:'100.00'}]
-    roundBet:""
+    roundBet:"",
+    showLightButton:false
   },
+  
   getters: {},
   
   mutations: {
@@ -58,6 +64,22 @@ export default new Vuex.Store({
     setShowMenu(state,action){
       state.showMenu = action;
     },
+    setShowMessage(state, action){
+      state.showMessage = action;
+      state.showLightButton = action;
+    },
+    setShowGraph(state,action){
+      state.showGraph =action;
+      state.showLightButton = action;
+    },
+    setShowHistory(state, action){
+      state.showHistory = action;
+      state.showLightButton = action;
+    },
+    setShowChart(state, action){
+      state.showChart = action;
+      state.showLightButton = action;
+    },  
     changeGameSetting(state,action){
       state.gameSetting = {
         ...state.gameSetting,

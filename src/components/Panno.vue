@@ -138,13 +138,41 @@
     </button>
 
     <!-- light button-->
-    <button class="hidden md:flex absolute animate-btn btn right-5 top-20 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-      @click="$store.commit('setShowMenu', !$store.state.showMenu)">
-      <Icon icon="entypo:menu" width="40"></Icon>
-    </button>
-
+    <div class="absolute right-5 grid grid-rows-4 top-20" :class="
+      this.$store.state.showLightButton
+        ? 'grid-cols-3'
+        : 'grid-cols-1'
+    ">
+      <div class="grid grid-rows-5">
+        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowMessage', !$store.state.showMessage)">
+        <Icon icon="jam:messages-alt" width="20"></Icon>
+      </button></div>
+        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowGraph', !$store.state.showGraph)">
+        <Icon icon="bi:graph-up-arrow" width="20"></Icon>
+      </button></div>
+        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowHistory', !$store.state.showHistory)">
+        <Icon icon="jam:messages-alt" width="20"></Icon>
+      </button></div>
+        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowChart', !$store.state.showChart)">
+        <Icon icon="ant-design:pie-chart-outlined" width="20"></Icon>
+      </button></div>
+      <div></div>
+      </div>
+      <div class="col-span-2" v-if="$store.state.showLightButton">
+        <AppMenu></AppMenu>
+      </div>
+      
+    </div>
     <div class="absolute bottom-28 md:bottom-40 left-5 md:left-10" v-if="this.showSideMenu" style="z-index:60;">
       <AppMenu></AppMenu>
+    </div>
+
+    <div class="absolute bottom-28 md:bottom-40 left-5 md:left-10" v-if="this.showMessage" style="z-index:60;">
+      
     </div>
     <div class="hidden sm:flex absolute left-20 bottom-20 md:bottom-32 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">table limit:<br> 0.5 ~ 200 EUR</div>
   </div>
