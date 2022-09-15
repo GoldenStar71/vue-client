@@ -116,12 +116,6 @@
       </div>
     </div>
 
-    <div class="absolute pb-2 pl-[30%] pr-[30%] top-0 w-full items-end justify-center text-green-500 md:flex">
-      <MarqueeText :repeat="10">
-        {{ this.$store.state.roundBet }}
-      </MarqueeText>
-    </div>
-
     <div class="absolute pb-2 pl-[30%] pr-[30%] w-full items-end justify-center text-green-500 hidden">
       <MarqueeText :repeat="10">
         {{ this.$store.state.roundBet }}
@@ -138,7 +132,7 @@
     </button>
 
     <!-- light button-->
-    <div class="hidden md:flex absolute right-5 grid top-20" :class="
+    <div class="hidden md:flex absolute right-5 grid top-1/4" :class="
       this.$store.state.showLightButton
         ? 'grid-cols-3'
         : 'grid-cols-1'
@@ -164,6 +158,9 @@
       </div>
       <div class="col-span-2" v-if="$store.state.showLightButton">
         <Message v-if="$store.state.showMessage"></Message>
+        <Graph v-if="$store.state.showGraph"></Graph>
+        <RightBet v-if="$store.state.showHistory"></RightBet>
+        <Message v-if="$store.state.showChart"></Message>
       </div>
       
     </div>
@@ -186,6 +183,8 @@ import Wheel from "./Wheel";
 import AppToast from './AppToast';
 import AppMenu from './Menu';
 import Message from './Message';
+import Graph from './Graph';
+import RightBet from './RightBet';
 import { getFillColor } from "../utils/index.js";
 import { Icon } from "@iconify/vue2";
 import { mapState } from 'vuex';
@@ -205,7 +204,9 @@ export default {
     Wheel,
     AppToast,
     MarqueeText,
-    Message
+    Message,
+    Graph,
+    RightBet
   },
   data() {
     return {

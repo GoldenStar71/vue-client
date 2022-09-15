@@ -1468,15 +1468,15 @@ button {
 @media (min-height: 56.25vw) and (max-width: 177.8vh) {
 
   .infotavolo h1 {
-    font-size: 4.6vw;
+    font-size: 2.6vw;
   }
 
   .desktop .infotavolo h1 .game {
-    font-size: 1.8vw;
+    font-size: 0.8vw;
   }
 
   .infotavolo p {
-    font-size: 1.6vw;
+    font-size: 0.6vw;
   }
 
   .mlc-btn {
@@ -1493,11 +1493,11 @@ button {
   }
 
   .infogioco .dati-gioco p {
-    font-size: 2.85vw;
+    font-size: 1.85vw;
   }
 
   .infogioco .dati-gioco p span {
-    font-size: 2.8vw;
+    font-size: 0.8vw;
   }
 
   .infogioco .dati-gioco p span.time {
@@ -1505,7 +1505,7 @@ button {
   }
 
   .infogioco .dati-gioco p span {
-    font-size: 2.8vw;
+    font-size: 0.8vw;
   }
 
   .infogioco .dati-gioco #eventId {

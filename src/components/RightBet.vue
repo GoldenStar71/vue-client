@@ -1,14 +1,38 @@
 <template>
     <div class="relative h-full border-2 cursor-pointer gap-2 rounded-lg border-gray-700 bg-black/80 p-2 flex flex-col w-60 md:w-96">
-        <div class="text-center">Chat</div>
-        <div class="text-right h-full mb-8 content-end">
-            <div v-for="(chat, index) in chats" :key="index">
-                {{chat}}
-            </div>
-        </div>
-        <div class="absolute bottom-2 inline-flex w-full">
-            <input v-model="chat" type="text" name="" id="" class="bg-transparent border-gray-700 border-2 w-4/5"><span @click="send()"><Icon icon='bx:right-arrow-circle' width="30"></Icon></span>
-        </div>
+        <div class="text-center">Bet: 7 players</div>
+        <table>
+            <tbody>
+                <tr v-for="row in this.$store.state.chats">
+                    <td class="py-2">
+                        {{ row }}
+                    </td>
+                    <td>
+                        {{ row }}
+                    </td>
+                    <td>
+                        {{ row }}
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <!-- <tr>
+                    <td colspan="3" v-if="historyData.length > 0">
+                        <div class="flex w-full justify-end gap-2 items-center py-2">
+                            <label>Items Per page 10 {{ this.page }} of
+                                {{ Math.floor($store.state.historyData.length / 10) + 1 }} </label>
+
+                            <a class="rounded-full navigate-item" @click="handlePrev">
+                                <Icon icon='eva:arrow-ios-back-outline' width="30"></Icon>
+                            </a>
+                            <a class="rounded-full navigate-item" @click="handleNext">
+                                <Icon icon='eva:arrow-ios-forward-outline' width="30"></Icon>
+                            </a>
+                        </div>
+                    </td>
+                </tr> -->
+            </tfoot>
+        </table>
     </div>
 </template>
 <script>
@@ -16,7 +40,7 @@ import { Icon } from "@iconify/vue2";
 import request from "@/utils/request";
 
 export default {
-    name: "Message",
+    name: "RightBet",
     components: {
         Icon,
     },
