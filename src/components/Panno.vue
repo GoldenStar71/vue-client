@@ -138,7 +138,7 @@
     </button>
 
     <!-- light button-->
-    <div class="absolute right-5 grid grid-rows-4 top-20" :class="
+    <div class="hidden md:flex absolute right-5 grid top-20" :class="
       this.$store.state.showLightButton
         ? 'grid-cols-3'
         : 'grid-cols-1'
@@ -163,16 +163,12 @@
       <div></div>
       </div>
       <div class="col-span-2" v-if="$store.state.showLightButton">
-        <AppMenu></AppMenu>
+        <Message v-if="$store.state.showMessage"></Message>
       </div>
       
     </div>
     <div class="absolute bottom-28 md:bottom-40 left-5 md:left-10" v-if="this.showSideMenu" style="z-index:60;">
       <AppMenu></AppMenu>
-    </div>
-
-    <div class="absolute bottom-28 md:bottom-40 left-5 md:left-10" v-if="this.showMessage" style="z-index:60;">
-      
     </div>
     <div class="hidden sm:flex absolute left-20 bottom-20 md:bottom-32 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">table limit:<br> 0.5 ~ 200 EUR</div>
   </div>
@@ -189,6 +185,7 @@ import CounterDesktop from "./CounterDesktop";
 import Wheel from "./Wheel";
 import AppToast from './AppToast';
 import AppMenu from './Menu';
+import Message from './Message';
 import { getFillColor } from "../utils/index.js";
 import { Icon } from "@iconify/vue2";
 import { mapState } from 'vuex';
@@ -207,7 +204,8 @@ export default {
     CounterDesktop,
     Wheel,
     AppToast,
-    MarqueeText
+    MarqueeText,
+    Message
   },
   data() {
     return {

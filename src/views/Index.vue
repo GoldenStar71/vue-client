@@ -532,6 +532,11 @@ export default {
           this.$store.commit('setUserToken', this.t);
           localStorage.setItem('userToken', this.t);
           this.$store.commit('setLoginAction', "logined");
+          this.$store.commit('setShowMessage', false);
+          this.$store.commit('setShowGraph', false);
+          this.$store.commit('setShowHistory', false);
+          this.$store.commit('setShowChart', false);
+          this.$store.commit('setChats', []);
           return true;
         }
         else if (res.data["status"] == 0) {
