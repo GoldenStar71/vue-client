@@ -1,17 +1,17 @@
 <template>
     <div class="relative h-full border-2 cursor-pointer gap-2 rounded-lg border-gray-700 bg-black/80 p-2 flex flex-col w-60 md:w-96">
-        <div class="text-center">Bet: 7 players</div>
+        <div class="text-center text-yellow-300">Bets: {{this.$store.state.roundBet.length}} players</div>
         <table>
             <tbody>
-                <tr v-for="row in this.$store.state.chats">
+                <tr v-for="(bet, index) in this.$store.state.roundBet" :key="index">
                     <td class="py-2">
-                        {{ row }}
+                        {{ index+1 }}
+                    </td>
+                    <td class="text-yellow-300">
+                        {{ bet.player }}
                     </td>
                     <td>
-                        {{ row }}
-                    </td>
-                    <td>
-                        {{ row }}
+                        {{ bet.amount }} EUR
                     </td>
                 </tr>
             </tbody>

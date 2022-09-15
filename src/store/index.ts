@@ -41,7 +41,7 @@ export default new Vuex.Store({
     loginAction:"",
     historyData:[],
     lastBetInfo:null, // array [{bet_code:'PL1',bet_amount:'100.00'}]
-    roundBet:"",
+    roundBet:[],
     showLightButton:false,
     chats:[]
   },

@@ -116,9 +116,12 @@
       </div>
     </div>
 
-    <div class="absolute pb-2 pl-[30%] pr-[30%] w-full items-end justify-center text-green-500 hidden">
+    <div class="absolute pb-2 pl-[30%] pr-[30%] bottom-10 w-full items-end justify-center sm:hidden">
       <MarqueeText :repeat="10">
-        {{ this.$store.state.roundBet }}
+        <!-- {{ this.$store.state.roundBet }} -->
+        <span v-for="(bet, index) in this.$store.state.roundBet" :key="index">
+          <span class="text-green-500">{{bet.player}}</span> : <span class="text-yellow-400">{{bet.amount}}</span>
+        </span>
       </MarqueeText>
     </div>
     <!-- buttons -->
@@ -138,20 +141,34 @@
         : 'grid-cols-1'
     ">
       <div class="grid grid-rows-5">
-        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowMessage', !$store.state.showMessage)">
+        <div><button class="hidden md:flex float-right btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowMessage', !$store.state.showMessage)" :class="this.$store.state.showMessage ? 'bg-red-700' : ''">
         <Icon icon="jam:messages-alt" width="20"></Icon>
       </button></div>
-        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowGraph', !$store.state.showGraph)">
+        <div><button class="hidden md:flex float-right btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowGraph', !$store.state.showGraph)" :class="this.$store.state.showGraph ? 'bg-red-700' : ''">
         <Icon icon="bi:graph-up-arrow" width="20"></Icon>
       </button></div>
-        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowHistory', !$store.state.showHistory)">
-        <Icon icon="jam:messages-alt" width="20"></Icon>
+        <div><button class="hidden md:flex float-right btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowHistory', !$store.state.showHistory)" :class="this.$store.state.showHistory ? 'bg-red-700' : ''">
+        <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.35 42.41" style="width:20px;">
+          <title>winner-bet</title>
+          <g id="Livello_2" data-name="Livello 2">
+            <g id="panel_SHOW" data-name="panel SHOW">
+              <g id="ON_SMALL" data-name="ON SMALL">
+                <g id="win_bet_ico" data-name="win/bet ico">
+                  <path d="M21.82,24.17C21.15,25.84,6.57,26.08,7,23.41A77.52,77.52,0,0,1,2.5,35.25l7.78-2.78a55.46,55.46,0,0,1,3.63,9.94l5.19-7.33,7.61,1.74S22.81,21.69,21.82,24.17Z" style="fill:#fff"/>
+                  <path d="M27.17,15.91l2.18-1.23-2.18-1.23,1.9-1.64L26.69,11l1.54-2-2.48-.3,1.13-2.24-2.5.19.67-2.41L22.64,5l.19-2.5L20.59,3.6l-.3-2.48-2,1.54L17.54.28l-1.63,1.9L14.68,0,13.45,2.18,11.81.28,11,2.66l-2-1.54L8.76,3.6,6.52,2.47,6.71,5,4.3,4.3,5,6.71l-2.5-.19L3.6,8.76l-2.48.3,1.54,2-2.38.78,1.9,1.64L0,14.68l2.18,1.23L.28,17.54l2.38.78-1.54,2,2.48.3L2.47,22.83,5,22.64,4.3,25.05l2.41-.67-.19,2.5,2.24-1.13.3,2.48,2-1.54.78,2.38,1.64-1.9,1.23,2.18,1.23-2.18,1.63,1.9.78-2.38,2,1.54.3-2.48,2.24,1.13-.19-2.5,2.41.67-.67-2.41,2.5.19-1.13-2.24,2.48-.3-1.54-2,2.38-.78ZM14.68,25.13A10.46,10.46,0,1,1,25.13,14.68,10.45,10.45,0,0,1,14.68,25.13Z" style="fill:#fff"/>
+                  <text transform="translate(11.66 20.4)" style="font-size:16.075820922851562px;fill:#fff;font-family:Montserrat-Regular, Montserrat;letter-spacing:-0.050055764110692944em">1</text>
+                </g>
+              </g>
+            </g>
+          </g>
+        </svg>
       </button></div>
-        <div><button class="hidden md:flex float-right animate-btn btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowChart', !$store.state.showChart)">
+        <div><button class="hidden md:flex float-right btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        @click="$store.commit('setShowChart', !$store.state.showChart)" :class="this.$store.state.showChart ? 'bg-red-700' : ''">
         <Icon icon="ant-design:pie-chart-outlined" width="20"></Icon>
       </button></div>
       <div></div>
