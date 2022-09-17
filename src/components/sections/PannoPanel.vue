@@ -656,7 +656,7 @@ export default {
   transform-origin: left bottom;
 }
 .mobile-panno-zoom {
-  transform: rotate(90deg) translateY(-30%) translateX(-10%) scale(1.5, 1.5);
+  transform: rotate(90deg) translateY(-30%) translateX(-15%) scale(1.5, 1.5);
   transform-origin: left bottom;
 }
 </style>

@@ -48,7 +48,7 @@
           <Icon icon="ci:dot-01-xs" width="10"></Icon><span class="text-white">BALANCE</span>
         </div>
         <span class="text-sm text-white  ">{{
-            formatNumber($store.state.haveBalance)
+        formatNumber($store.state.haveBalance)
         }}</span>
       </div>
       <div class="flex gap-0 items-start flex-col text-xs leading-none">
@@ -56,12 +56,12 @@
           <Icon icon="ci:dot-01-xs" width="10"></Icon><span class="text-yellow-200">EUR</span>
         </div>
         <span class="text-sm text-white  ">{{
-            formatNumber($store.state.roundBalance)
+        formatNumber($store.state.roundBalance)
         }}</span>
       </div>
     </div>
     <!-- coin tool bar -->
-    <div class="coin-toolbar absolute pb-2 md:pl-[30%]  w-full items-end justify-center hidden md:flex" :class="
+    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center hidden md:flex" :class="
       this.$store.state.roundStatus == 'started'
         ? 'coin-toolbar-open'
         : 'coin-toolbar-close hidden'
@@ -129,9 +129,21 @@
       @click="$store.commit('setShowMenu', !$store.state.showMenu)">
       <Icon icon="entypo:menu" width="40"></Icon>
     </button>
-    <button :disabled="this.$store.state.roundStatus != 'started'" @click="handleShowGroupBet()" id='btn-show-group-bet'
+    <button v-if="this.$store.state.roundStatus == 'started'" @click="handleShowGroupBet()" id='btn-show-group-bet'
       class=" right-0 flex absolute animate-btn btn bottom-20 md:bottom-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle">
-      <Icon icon="ph:coins-duotone" width="40"></Icon>
+      <!-- <Icon icon="ph:coins-duotone" width="40"></Icon> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Livello_1" x="0px" y="0px" viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
+        <title>JP</title>
+        <g>
+          <g id="icone_bottoni">
+            <g id="ovale">
+              <path style="fill:none;stroke:#FFFFFF;stroke-width:3.5;stroke-miterlimit:10;" d="M50.1,50.75h51.41     c12.9,0,23.35,10.45,23.35,23.35v2.3c0,12.9-10.45,23.35-23.35,23.35H50.1c-12.9,0-23.35-10.45-23.35-23.35v-2.3     C26.75,61.2,37.2,50.75,50.1,50.75z"/>
+              <path style="fill:none;stroke:#FFFFFF;stroke-width:3.5;stroke-miterlimit:10;" d="M50.95,62.25h49.71     c6.84,0,12.39,5.55,12.39,12.39v1.22c0,6.84-5.55,12.39-12.39,12.39H50.95c-6.84,0-12.39-5.55-12.39-12.39v-1.22     C38.56,67.8,44.11,62.25,50.95,62.25z"/>
+              <line style="fill:none;stroke:#FFFFFF;stroke-width:3.5;stroke-miterlimit:10;" x1="69.05" y1="62.05" x2="82.56" y2="88.45"/>
+            </g>
+          </g>
+        </g>
+      </svg>
     </button>
 
     <!-- light button-->
@@ -140,51 +152,110 @@
         ? 'grid-cols-3'
         : 'grid-cols-1'
     ">
-      <div class="grid grid-rows-5">
+      <div class="flex flex-col">
         <div><button class="hidden md:flex float-right btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowMessage', !$store.state.showMessage)" :class="this.$store.state.showMessage ? 'bg-red-700' : ''">
-        <Icon icon="jam:messages-alt" width="20"></Icon>
-      </button></div>
-        <div><button class="hidden md:flex float-right btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowGraph', !$store.state.showGraph)" :class="this.$store.state.showGraph ? 'bg-red-700' : ''">
-        <Icon icon="bi:graph-up-arrow" width="20"></Icon>
-      </button></div>
-        <div><button class="hidden md:flex float-right btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowHistory', !$store.state.showHistory)" :class="this.$store.state.showHistory ? 'bg-red-700' : ''">
-        <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.35 42.41" style="width:20px;">
-          <title>winner-bet</title>
-          <g id="Livello_2" data-name="Livello 2">
-            <g id="panel_SHOW" data-name="panel SHOW">
-              <g id="ON_SMALL" data-name="ON SMALL">
-                <g id="win_bet_ico" data-name="win/bet ico">
-                  <path d="M21.82,24.17C21.15,25.84,6.57,26.08,7,23.41A77.52,77.52,0,0,1,2.5,35.25l7.78-2.78a55.46,55.46,0,0,1,3.63,9.94l5.19-7.33,7.61,1.74S22.81,21.69,21.82,24.17Z" style="fill:#fff"/>
-                  <path d="M27.17,15.91l2.18-1.23-2.18-1.23,1.9-1.64L26.69,11l1.54-2-2.48-.3,1.13-2.24-2.5.19.67-2.41L22.64,5l.19-2.5L20.59,3.6l-.3-2.48-2,1.54L17.54.28l-1.63,1.9L14.68,0,13.45,2.18,11.81.28,11,2.66l-2-1.54L8.76,3.6,6.52,2.47,6.71,5,4.3,4.3,5,6.71l-2.5-.19L3.6,8.76l-2.48.3,1.54,2-2.38.78,1.9,1.64L0,14.68l2.18,1.23L.28,17.54l2.38.78-1.54,2,2.48.3L2.47,22.83,5,22.64,4.3,25.05l2.41-.67-.19,2.5,2.24-1.13.3,2.48,2-1.54.78,2.38,1.64-1.9,1.23,2.18,1.23-2.18,1.63,1.9.78-2.38,2,1.54.3-2.48,2.24,1.13-.19-2.5,2.41.67-.67-2.41,2.5.19-1.13-2.24,2.48-.3-1.54-2,2.38-.78ZM14.68,25.13A10.46,10.46,0,1,1,25.13,14.68,10.45,10.45,0,0,1,14.68,25.13Z" style="fill:#fff"/>
-                  <text transform="translate(11.66 20.4)" style="font-size:16.075820922851562px;fill:#fff;font-family:Montserrat-Regular, Montserrat;letter-spacing:-0.050055764110692944em">1</text>
+            @click="$store.commit('setShowMessage', !$store.state.showMessage)"
+            :class="this.$store.state.showMessage ? 'bg-red-700' : ''">
+            <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+              <title>chat</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="icone">
+                  <g id="chat">
+                    <path
+                      d="M85.23,93.37c4,5.49,9.89,11.69,15.84,11.68C98,102.43,96,97.19,94.84,92.73c14.48-2.62,25.26-12.58,25.26-24.47,0-13.89-14.72-25.15-32.88-25.15S54.35,54.37,54.35,68.26C54.35,81.64,68,92.58,85.23,93.37Z"
+                      style="fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:3px" />
+                    <path
+                      d="M78.6,84.38c0-10.25-10.86-18.55-24.25-18.55S30.1,74.13,30.1,84.38c0,8.77,7.95,16.11,18.64,18.05-.87,3.28-2.32,7.14-4.6,9.08,4.39,0,8.72-4.57,11.68-8.62C68.52,102.32,78.6,94.25,78.6,84.38Z"
+                      style="fill:#fff" />
+                  </g>
                 </g>
               </g>
-            </g>
-          </g>
-        </svg>
-      </button></div>
+            </svg>
+          </button></div>
+        <div><button class="hidden md:flex float-right btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+            @click="$store.commit('setShowGraph', !$store.state.showGraph)"
+            :class="this.$store.state.showGraph ? 'bg-red-700' : ''">
+            <!-- <Icon icon="bi:graph-up-arrow" width="20"></Icon> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+              <title>Risorsa 3</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="icone_bottoni" data-name="icone bottoni">
+                  <g id="Livello_2-2" data-name="Livello 2">
+                    <g id="icone">
+                      <g id="stats">
+                        <path
+                          d="M105.47,107H41.7V43a2,2,0,1,0-4-.28v66.17a2.09,2.09,0,0,0,2,2.07h65.74a2,2,0,0,0,2-2h0A2,2,0,0,0,105.47,107Z"
+                          style="fill:#fff" />
+                        <path
+                          d="M52.52,98.11a3.07,3.07,0,0,0,4.16-1.21L71.93,69.2l13.92,7.66a2.87,2.87,0,0,0,2.71.48,3,3,0,0,0,1.86-1.46,2.83,2.83,0,0,0,.17-.4L99.11,60l3.06,1.67c1.59.87,2.82.1,2.76-1.71l-.45-12.45c-.07-1.81-1.39-2.54-3-1.64L90.6,52.19c-1.57.9-1.55,2.34,0,3.21l3.09,1.68-7.2,13.14L72.29,62.4A3.25,3.25,0,0,0,68,63.64L51.31,94A3.07,3.07,0,0,0,52.52,98.11Z"
+                          style="fill:#fff" />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button></div>
+        <div><button class="hidden md:flex float-right btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+            @click="$store.commit('setShowHistory', !$store.state.showHistory)"
+            :class="this.$store.state.showHistory ? 'bg-red-700' : ''">
+            <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29.35 42.41" style="width:20px;">
+              <title>winner-bet</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="panel_SHOW" data-name="panel SHOW">
+                  <g id="ON_SMALL" data-name="ON SMALL">
+                    <g id="win_bet_ico" data-name="win/bet ico">
+                      <path
+                        d="M21.82,24.17C21.15,25.84,6.57,26.08,7,23.41A77.52,77.52,0,0,1,2.5,35.25l7.78-2.78a55.46,55.46,0,0,1,3.63,9.94l5.19-7.33,7.61,1.74S22.81,21.69,21.82,24.17Z"
+                        style="fill:#fff" />
+                      <path
+                        d="M27.17,15.91l2.18-1.23-2.18-1.23,1.9-1.64L26.69,11l1.54-2-2.48-.3,1.13-2.24-2.5.19.67-2.41L22.64,5l.19-2.5L20.59,3.6l-.3-2.48-2,1.54L17.54.28l-1.63,1.9L14.68,0,13.45,2.18,11.81.28,11,2.66l-2-1.54L8.76,3.6,6.52,2.47,6.71,5,4.3,4.3,5,6.71l-2.5-.19L3.6,8.76l-2.48.3,1.54,2-2.38.78,1.9,1.64L0,14.68l2.18,1.23L.28,17.54l2.38.78-1.54,2,2.48.3L2.47,22.83,5,22.64,4.3,25.05l2.41-.67-.19,2.5,2.24-1.13.3,2.48,2-1.54.78,2.38,1.64-1.9,1.23,2.18,1.23-2.18,1.63,1.9.78-2.38,2,1.54.3-2.48,2.24,1.13-.19-2.5,2.41.67-.67-2.41,2.5.19-1.13-2.24,2.48-.3-1.54-2,2.38-.78ZM14.68,25.13A10.46,10.46,0,1,1,25.13,14.68,10.45,10.45,0,0,1,14.68,25.13Z"
+                        style="fill:#fff" />
+                      <text transform="translate(11.66 20.4)"
+                        style="font-size:16.075820922851562px;fill:#fff;font-family:Montserrat-Regular, Montserrat;letter-spacing:-0.050055764110692944em">1</text>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button></div>
         <div><button class="hidden md:flex float-right btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
-        @click="$store.commit('setShowChart', !$store.state.showChart)" :class="this.$store.state.showChart ? 'bg-red-700' : ''">
-        <Icon icon="ant-design:pie-chart-outlined" width="20"></Icon>
-      </button></div>
-      <div></div>
+            @click="$store.commit('setShowChart', !$store.state.showChart)"
+            :class="this.$store.state.showChart ? 'bg-red-700' : ''">
+            <!-- <Icon icon="ant-design:pie-chart-outlined" width="20"></Icon> -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32.58 32.57" style="width:20px;">
+              <title>live-stat</title>
+              <g id="Livello_2" data-name="Livello 2">
+                <g id="panel_SHOW" data-name="panel SHOW">
+                  <g id="ON_SMALL" data-name="ON SMALL">
+                    <g id="live_ico" data-name="live ico">
+                      <path d="M17.69,0V15.35H32.57a1.69,1.69,0,0,0,0-.23A15.12,15.12,0,0,0,17.69,0Z"
+                        style="fill:#fff" />
+                      <path d="M15.36,17.68V2.33h-.23A15.13,15.13,0,1,0,30.25,17.68Z" style="fill:#fff" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button></div>
+        <div></div>
       </div>
       <div class="col-span-2" v-if="$store.state.showLightButton">
         <Message v-if="$store.state.showMessage"></Message>
         <Graph v-if="$store.state.showGraph"></Graph>
         <RightBet v-if="$store.state.showHistory"></RightBet>
-        <Message v-if="$store.state.showChart"></Message>
+        <RealBet v-if="$store.state.showChart"></RealBet>
       </div>
-      
+
     </div>
     <div class="absolute bottom-28 md:bottom-40 left-5 md:left-10" v-if="this.showSideMenu" style="z-index:60;">
       <AppMenu></AppMenu>
     </div>
-    <div class="hidden sm:flex absolute left-20 bottom-20 md:bottom-32 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">table limit:<br> 0.5 ~ 200 EUR</div>
+    <div
+      class="hidden sm:flex absolute left-20 bottom-20 md:bottom-32 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">
+      table limit:<br> 0.5 ~ 200 EUR</div>
   </div>
 </template>
 
@@ -202,6 +273,7 @@ import AppMenu from './Menu';
 import Message from './Message';
 import Graph from './Graph';
 import RightBet from './RightBet';
+import RealBet from './RealBet';
 import { getFillColor } from "../utils/index.js";
 import { Icon } from "@iconify/vue2";
 import { mapState } from 'vuex';
@@ -223,7 +295,8 @@ export default {
     MarqueeText,
     Message,
     Graph,
-    RightBet
+    RightBet,
+    RealBet
   },
   data() {
     return {
@@ -547,8 +620,8 @@ export default {
         if (response.data.message === 'success') {
           let userBalance = this.$store.state.haveBalance;
           for (const bet of response.data.result) {
-            userBalance -=bet.bet_amount;
-            if (userBalance  > 0)
+            userBalance -= bet.bet_amount;
+            if (userBalance > 0)
               arr.push({ refer: bet.bet_code, value: eval(bet.bet_amount) });
             else {
               valid = false;
@@ -556,7 +629,7 @@ export default {
               break;
             }
           }
-          if(valid){
+          if (valid) {
             this.$store.commit('setSelected', arr);
             this.$store.commit('setUpdated', arr);
             this.twoxMode = true;
@@ -579,13 +652,13 @@ export default {
         let backup = this.$store.state.selected.slice(0, this.$store.state.selected.length);
         let current = this.$store.state.selected.slice(0, this.$store.state.selected.length);
         let valid = true;
-        console.log("original:",backup);
+        console.log("original:", backup);
         Loop1:
         for (const coin of current) {
           // coin.value = coin.value * 2;
-          console.log("coinvalue",coin.value);
+          console.log("coinvalue", coin.value);
           userBalance -= coin.value * 2;
-          if (userBalance > 0){
+          if (userBalance > 0) {
             _arr.push(coin);
             coin.value = coin.value * 2;
           } else {
@@ -2891,6 +2964,7 @@ button.mat-menu-item {
 .message-dialog.dialog-warning .mat-dialog-container {
   border: 2px solid #ff9000;
 }
+
 /* 
 .message-dialog.dialog-warning .mat-dialog-container .ico-message-dialog {
   /*background-image: url(/roulette-module/html5/roulette_new/assets/img/ico/dialog-warn.svg)
@@ -2975,9 +3049,9 @@ button.mat-menu-item {
 
 .win-number {
   box-shadow: rgba(255, 255, 255, 0.15) 0px 2px 4px 0px, rgba(255, 255, 255, 0.56) 0px 2px 16px 0px;
-  font-family:Montserrat,sans-serif;
-  font-weight:bold;
-  width:1.8rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  width: 1.8rem;
   height: 1.8rem;
 }
 

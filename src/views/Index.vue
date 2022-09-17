@@ -12,67 +12,68 @@
       </div>
 
     </div>
-    <div class="mlc-header z-50 absolute top-0 sm:block">
-      <!---->
-      <div class="ng-star-inserted">
-        <div class="infotavolo">
-          <h1>
-            LIVE<i><span class="game">roulette</span> FROM </i><span>MALTA</span></h1>
-          <p>DEALER
-            <button>{{ $store.state.roundInfo.dealer }}</button>
-          </p>
-        </div>
-      </div>
-      <!--      <jackpot-boxes class="ng-star-inserted">&lt;!&ndash;&ndash;&gt;</jackpot-boxes>-->
-      <div class="ng-star-inserted">
-        <div class="infogioco">
-          <!---->
-          <!---->
-          <div class="mlc-btn ico-exit pevents-on ng-star-inserted" @click="handleLogout()"></div>
-          <div class="dati-gioco">
-            <p><span class="time">{{ time }}</span><br>
-              <!---->
-              <!---->
-              <button id="eventId" class="ng-star-inserted">{{ $store.state.roundInfo.seqPlay }}</button>
-              : EVENT ID
+      <div class="mlc-header z-50 absolute top-0 sm:block">
+        <!---->
+        <div class="ng-star-inserted">
+          <div class="infotavolo">
+            <h1>
+              LIVE<i><span class="game">roulette</span> FROM </i><span>MALTA</span></h1>
+            <p>DEALER
+              <button>{{ $store.state.roundInfo.dealer }}</button>
             </p>
           </div>
-          <div class="tooltip-datigioco">
-            <div class="triangolo"></div>
-            <button id="partecipationId"></button>
-            : Ticket ADM <br>
-            <button id="sessionId"></button>
-            : <span>Session ADM</span>
-          </div>
         </div>
-      </div>
-    </div>
-    <div class="absolute top-0 w-full h-full  items-center justify-center hidden md:flex ">
-      <img src='/assets/panel.png' alt='banner' class=" z-0 w-full pointer-events-none	" />
-    </div>
-    <LoginView
-      v-if="(gameInfo.live_stream != '') && ($store.state.loginAction !== 'logined') && (!$store.state.loginAction.includes('register'))">
-    </LoginView>
-    <RegisterView v-if="($store.state.loginAction.includes('register'))"></RegisterView>
-    <PannoView v-if="($store.state.loginAction === 'logined' && $store.state.loginAction)"></PannoView>
-    <div v-if="($store.state.loginAction != 'logined')"
-      class="bg-contain bg-no-repeat fixed h-full w-full bg-center init_bg top-0 left-0 sm:bg-cover">
-    </div>
-    <div v-if="($store.state.loginAction == 'logined' && !$store.state.selectTable)"
-      class="bg-contain bg-no-repeat fixed h-full w-full bg-center table-select top-0 left-0 sm:bg-cover">
-      <div class="h-full grid grid-rows-3 grid-cols-3 gap-4">
-        <div class="row-start-2 row-span-1 col-span-1" @click="select_table">
-          <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full ml-10 border-2 border-yellow-400 bg-black">
-            <div class="h-full pt-0.5 pb-0.5 grid grid-rows-3 text-center">
-              <div>table1</div>
-              <div>limit</div>
-              <div>0.5~200</div>
+        <!--      <jackpot-boxes class="ng-star-inserted">&lt;!&ndash;&ndash;&gt;</jackpot-boxes>-->
+        <div class="ng-star-inserted">
+          <div class="infogioco">
+            <!---->
+            <!---->
+            <div class="mlc-btn ico-exit pevents-on ng-star-inserted" @click="handleLogout()"></div>
+            <div class="dati-gioco">
+              <p><span class="time">{{ time }}</span><br>
+                <!---->
+                <!---->
+                <button id="eventId" class="ng-star-inserted">{{ $store.state.roundInfo.seqPlay }}</button>
+                : EVENT ID
+              </p>
+            </div>
+            <div class="tooltip-datigioco">
+              <div class="triangolo"></div>
+              <button id="partecipationId"></button>
+              : Ticket ADM <br>
+              <button id="sessionId"></button>
+              : <span>Session ADM</span>
             </div>
           </div>
         </div>
-        <div></div>
       </div>
-    </div>
+      <div class="absolute top-0 w-full h-full  items-center justify-center hidden md:flex ">
+        <img src='/assets/panel.png' alt='banner' class=" z-0 w-full pointer-events-none	" />
+      </div>
+      <LoginView
+        v-if="(gameInfo.live_stream != '') && ($store.state.loginAction !== 'logined') && (!$store.state.loginAction.includes('register'))">
+      </LoginView>
+      <RegisterView v-if="($store.state.loginAction.includes('register'))"></RegisterView>
+      <PannoView v-if="($store.state.loginAction === 'logined' && $store.state.loginAction)"></PannoView>
+      <div v-if="($store.state.loginAction != 'logined')"
+        class="bg-contain bg-no-repeat fixed h-full w-full bg-center init_bg top-0 left-0 sm:bg-cover">
+      </div>
+      <div v-if="($store.state.loginAction == 'logined' && !$store.state.selectTable)"
+        class="bg-contain bg-no-repeat fixed h-full w-full bg-center table-select top-0 left-0 sm:bg-cover">
+        <div class="h-full grid grid-rows-3 grid-cols-3 gap-4">
+          <div class="row-start-2 row-span-1 col-span-1" @click="select_table">
+            <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full ml-10 border-2 border-yellow-400 bg-black">
+              <div class="h-full pt-0.5 pb-0.5 grid grid-rows-3 text-center">
+                <div>table1</div>
+                <div>limit</div>
+                <div>0.5~200</div>
+              </div>
+            </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    
   </div>
 
 
@@ -1572,5 +1573,9 @@ video {
   background-image: url('../assets/bg_limiti.jpeg');
   z-index: 100;
   background-color: black;
+}
+.ico-equal {
+  background-image: url('../assets/equal.svg');
+  background-repeat: no-repeat;
 }
 </style>
