@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="mlc-container desktop BETTIME roulette-left"> -->
 
-  <div class="panno relative  overflow-hidden h-full w-full">
+  <div class="panno absolute overflow-hidden h-full w-full top-0 left-0 right-0 bottom-0">
     <SettingDialog v-if="$store.state.activeTab !== ''" :activeTab="$store.state.activeTab"></SettingDialog>
 
     <div class="w-full h-full flex md:items-center justify-center relative">
