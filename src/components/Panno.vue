@@ -1,5 +1,5 @@
 <template>
-  <div class="flex absolute top-0  w-full h-full md:items-center">
+  <div class="flex absolute top-0  w-full h-full items-center md:items-center">
     <div class="flex flex-col h-full overflow-y-hidden absolute w-full md:w-1/2 win-numbers top-0">
       <div class="flex flex-col  h-1/2 md:h-2/3 relative">
         <AppToast :showMessage="showToast" :title="toastTitle" :message="toastMessage"></AppToast>
@@ -43,20 +43,20 @@
       </div>
     </div>
     <!-- balances -->
-    <div class="flex justify-between w-full px-2 bottom-2 md:bottom-4  absolute text-xs leading-none">
+    <div class="flex justify-between w-full px-2 bottom-2 md:bottom-4  absolute text-[10px] md:text-xs leading-none">
       <div class="flex gap-0 items-end flex-col ">
         <div class="flex gap-2 items-center"><span class="text-yellow-200">EUR</span>
           <Icon icon="ci:dot-01-xs" width="10"></Icon><span class="text-white">BALANCE</span>
         </div>
-        <span class="text-sm text-white  ">{{
+        <span class="md:text-sm text-white  ">{{
         formatNumber($store.state.haveBalance)
         }}</span>
       </div>
-      <div class="flex gap-0 items-start flex-col text-xs leading-none">
+      <div class="flex gap-0 items-start flex-col leading-none">
         <div class="flex gap-2 items-center"><span class="text-white">{{ $store.state.gameStatus }}</span>
           <Icon icon="ci:dot-01-xs" width="10"></Icon><span class="text-yellow-200">EUR</span>
         </div>
-        <span class="text-sm text-white  ">{{
+        <span class="md:text-sm text-white  ">{{
         formatNumber($store.state.roundBalance)
         }}</span>
       </div>
@@ -130,7 +130,7 @@
       <Icon icon="entypo:menu" width="40"></Icon>
     </button>
     <button v-if="this.$store.state.roundStatus == 'started'" @click="handleShowGroupBet()" id='btn-show-group-bet'
-      class=" right-0 flex absolute animate-btn btn bottom-20 md:bottom-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle">
+      class=" right-0 flex absolute animate-btn btn bottom-14 md:bottom-14 w-7 h-7 sm:w-10 sm:h-10 btn-circle">
       <!-- <Icon icon="ph:coins-duotone" width="40"></Icon> -->
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Livello_1" x="0px" y="0px" viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
         <title>JP</title>
@@ -254,7 +254,7 @@
       <AppMenu></AppMenu>
     </div>
     <div
-      class="hidden sm:flex absolute left-20 bottom-20 md:bottom-32 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">
+      class="hidden sm:flex absolute left-20 bottom-14 md:bottom-14 w-22 h-15 p-2 text-yellow-400 bg-gray-400 opacity-70 rounded text-center text-xs">
       table limit:<br> 0.5 ~ 200 EUR</div>
   </div>
 </template>
@@ -3132,7 +3132,7 @@ button.mat-menu-item {
   }
 }
 .panno-box {
-  margin-top:25%;
+  margin-top:8%;
 }
 
 @media (max-width: 767px) {
