@@ -8,7 +8,8 @@
 
       <div id="mlc-video-div"
         class="nano-video  relative z-0 w-full h-full items-start flex md:items-center justify-center "
-        :class="(($store.state.roundStatus !== 'started') ? 'origin-top-left -mt-[60%]  scale-[200%] md:scale-100 md:flex md:-mt-[8.5%] ' : 'md:-mt-[8.5%] ')">
+        :xclass="(($store.state.roundStatus !== 'started') ? 'origin-top-left -mt-[60%]  scale-[200%] md:scale-100 md:flex md:-mt-[8.5%]' : 'md:-mt-[8.5%]')"
+        :class="(($store.state.roundStatus !== 'started') ? 'origin-top-left -mt-[4.5%] md:scale-100 md:flex md:-mt-[8.5%]' : '-mt-[4.5%] md:-mt-[8.5%]')">
       </div>
     </div>
     

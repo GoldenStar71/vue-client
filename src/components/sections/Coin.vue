@@ -1,6 +1,6 @@
 <template>
   <div
-    class="coin w-10 h-10 md:w-12 md:h-12 "
+    class="coin md:w-12 md:h-12 "
     @click="handleSelectCoin"
     :class="{ 'coin-selected': this.value == this.$store.state.coin }"
   >
@@ -166,6 +166,13 @@ export default {
 
   100% {
     transform: scale(1.2, 1.2);
+  }
+}
+
+@media (max-width: 767px) {
+  .coin {
+    height: 5vw;
+    width: 5vw;
   }
 }
 </style>

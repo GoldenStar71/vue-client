@@ -19,7 +19,7 @@
       </div>
     </div>
     <!-- hot and cool number -->
-    <div v-if="($store.state.roundStatus !== 'started')"
+    <!-- <div v-if="($store.state.roundStatus !== 'started')"
       class="absolute top-0 right-0 h-full w-20 flex flex-col md:hidden items-center justify-center gap-[1px]">
       <h3 class="text-orange-600 font-bold">HOT</h3>
       <div v-if="number !== ''" v-for="number in $store.state.hotCoolNumbers.hot"
@@ -33,7 +33,7 @@
         :class="numberObj[number].color === 'Black' ? 'bg-black' : (numberObj[number].color === 'Green' ? ' bg-green-700' : 'bg-red-700')">
         {{ number }}
       </div>
-    </div>
+    </div> -->
     <div xclass="w-full md:p-12 md:w-3/5 md:ml-[38%] md:mt-[6%]" class="w-full p-12 w-3/5 ml-[38%] md:mt-[6%] panno-box">
       <div _ngcontent-bdp-c0="" class="panno-container relative">
         <PannoPanel v-bind:startedBetting="$store.state.roundStatus == 'started'"></PannoPanel>
@@ -62,21 +62,21 @@
       </div>
     </div>
     <!-- coin tool bar -->
-    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center md:flex" :class="
+    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center flex coin-toolbar-open" :xclass="
       this.$store.state.roundStatus == 'started'
         ? 'coin-toolbar-open'
         : 'coin-toolbar-close hidden'
     ">
       <div class="flex justify-center coin-sub-toolbar items-end relative ">
-        <button class="animate-btn btn w-6 h-6 md:w-12 md:h-12 btn-circle mb-16" @click="handleClearAll"
+        <button class="animate-btn btn coin-clear-button md:w-12 md:h-12 btn-circle mb-16" @click="handleClearAll"
           :class="$store.state.betAction == 'remove' ? 'absolute -left-6 flex ' : 'hidden'">
           <Icon icon="ri:brush-line" width="30"></Icon>
         </button>
-        <button class="animate-btn btn w-10 h-10 md:w-12 md:h-12   btn-circle mr-1 flex" @click="handleRemoveCoin">
+        <button class="animate-btn btn coin-button md:w-12 md:h-12   btn-circle mr-1 flex" @click="handleRemoveCoin">
           <Icon :icon="$store.state.betAction == 'remove' ? 'bi:check-lg' : 'la:times'" width="40"></Icon>
         </button>
 
-        <button class="animate-btn btn w-10 h-10 md:w-12 md:h-12   btn-circle mr-4 flex" @click="handleFetchLast">
+        <button class="animate-btn btn coin-button md:w-12 md:h-12   btn-circle mr-4 flex" @click="handleFetchLast">
           <Icon :icon="(twoxMode ? 'fluent:multiplier-2x-32-filled' : 'bytesize:reload')" width="40"></Icon>
         </button>
       </div>
@@ -3133,6 +3133,20 @@ button.mat-menu-item {
 }
 .panno-box {
   margin-top:25%;
+}
+
+@media (max-width: 767px) {
+  .coin-button {
+    height: 5vw;
+    width: 5vw;
+  }
+
+  @media (max-width: 767px) {
+  .coin {
+    height: 3vw;
+    width: 3vw;
+  }
+}
 }
 
 </style>
