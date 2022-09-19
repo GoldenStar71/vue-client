@@ -1,6 +1,6 @@
 <template>
   <div class='relative'>
-    <div _ngcontent-bdp-c0="" id="ovale" class="hidden md:block">
+    <div _ngcontent-bdp-c0="" id="ovale" xclass="hidden md:block">
       <svg
         id="drawOvale"
         width="100%"

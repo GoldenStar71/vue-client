@@ -1,16 +1,17 @@
 <template>
   <div class="flex absolute top-0  w-full h-full md:items-center">
-    <div class="flex flex-col justify-center h-full overflow-y-hidden absolute w-full md:w-1/2 win-numbers">
+    <div class="flex flex-col h-full overflow-y-hidden absolute w-full md:w-1/2 win-numbers top-0">
       <div class="flex flex-col  h-1/2 md:h-2/3 relative">
         <AppToast :showMessage="showToast" :title="toastTitle" :message="toastMessage"></AppToast>
         <CounterDesktop v-if="($store.state.roundStatus === 'started')"></CounterDesktop>
+        <!-- <CounterDesktop></CounterDesktop> -->
         <Wheel :num="$store.state.winNumber" v-if="$store.state.roundStatus !== 'started'"
           :wait="$store.state.roundStatus == 'wait'" :numberList="numberList">
         </Wheel>
-        <div class="flex flex-col-reverse gap-1 p-3 pt-2 mt-[75px] md:mt-[90px]">
+        <div class="flex flex-col-reverse gap-1 p-3 pt-2 win-numbers-mt">
           <div v-if="number !== ''" v-for="number in $store.state.winNumbers"
-            class="text-center rounded-full flex items-center justify-center w-8 h-8 win-number"
-            :class="numberObj[number].color === 'Black' ? 'ml-6 bg-black' : (numberObj[number].color === 'Green' ? 'ml-3 bg-green-700' : 'bg-red-700')">
+            class="text-center rounded-full flex items-center justify-center win-number"
+            :class="numberObj[number].color === 'Black' ? 'ml-[1vw] bg-black' : (numberObj[number].color === 'Green' ? 'ml-[2vw] bg-green-700' : 'bg-red-700')">
             {{ number }}
           </div>
         </div>
@@ -33,7 +34,7 @@
         {{ number }}
       </div>
     </div>
-    <div class="w-full md:p-12 md:w-3/5 md:ml-[38%] md:mt-[6%]">
+    <div xclass="w-full md:p-12 md:w-3/5 md:ml-[38%] md:mt-[6%]" class="w-full p-12 w-3/5 ml-[38%] md:mt-[6%] panno-box">
       <div _ngcontent-bdp-c0="" class="panno-container relative">
         <PannoPanel v-bind:startedBetting="$store.state.roundStatus == 'started'"></PannoPanel>
         <Ovale v-if="$store.state.roundStatus == 'started' && !$store.state.showGroupBet"></Ovale>
@@ -42,7 +43,7 @@
       </div>
     </div>
     <!-- balances -->
-    <div class="flex justify-between w-full px-2 bottom-4  absolute text-xs leading-none">
+    <div class="flex justify-between w-full px-2 bottom-2 md:bottom-4  absolute text-xs leading-none">
       <div class="flex gap-0 items-end flex-col ">
         <div class="flex gap-2 items-center"><span class="text-yellow-200">EUR</span>
           <Icon icon="ci:dot-01-xs" width="10"></Icon><span class="text-white">BALANCE</span>
@@ -61,7 +62,7 @@
       </div>
     </div>
     <!-- coin tool bar -->
-    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center hidden md:flex" :class="
+    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center md:flex" :class="
       this.$store.state.roundStatus == 'started'
         ? 'coin-toolbar-open'
         : 'coin-toolbar-close hidden'
@@ -89,7 +90,7 @@
       <Coin :fillColor="getFillColor(200, 500)" v-bind:value="200" :filter="`shadow7`"></Coin>
     </div>
     <!-- mobile toolbar-->
-    <div class="mobile-coin-toolbar flex-col py-6 items-end justify-start flex md:hidden absolute right-4" :class="
+    <!-- <div class="mobile-coin-toolbar flex-col py-6 items-end justify-start flex md:hidden absolute right-4" :class="
       this.$store.state.roundStatus == 'started'
         ? 'mobile-coin-toolbar-open '
         : 'mobile-coin-toolbar-close '
@@ -114,18 +115,17 @@
           <Icon icon="ri:brush-line" width="30"></Icon>
         </button>
       </div>
-    </div>
+    </div> -->
 
-    <div class="absolute pb-2 pl-[30%] pr-[30%] bottom-10 w-full items-end justify-center sm:hidden">
+    <!-- <div class="absolute pb-2 pl-[30%] pr-[30%] bottom-10 w-full items-end justify-center sm:hidden">
       <MarqueeText :repeat="10">
-        <!-- {{ this.$store.state.roundBet }} -->
         <span v-for="(bet, index) in this.$store.state.roundBet" :key="index">
           <span class="text-green-500">{{bet.player}}</span> : <span class="text-yellow-400">{{bet.amount}}</span>
         </span>
       </MarqueeText>
-    </div>
+    </div> -->
     <!-- buttons -->
-    <button class=" flex absolute animate-btn btn bottom-20 md:bottom-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+    <button class=" flex absolute animate-btn btn bottom-14 md:bottom-14 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
       @click="$store.commit('setShowMenu', !$store.state.showMenu)">
       <Icon icon="entypo:menu" width="40"></Icon>
     </button>
@@ -153,7 +153,7 @@
         : 'grid-cols-1'
     ">
       <div class="flex flex-col">
-        <div><button class="hidden md:flex float-right btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        <div><button class="md:flex float-right btn right-5 top-20 md:top-20 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
             @click="$store.commit('setShowMessage', !$store.state.showMessage)"
             :class="this.$store.state.showMessage ? 'bg-red-700' : ''">
             <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
@@ -173,7 +173,7 @@
               </g>
             </svg>
           </button></div>
-        <div><button class="hidden md:flex float-right btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        <div><button class="md:flex float-right btn right-5 top-24 md:top-32 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
             @click="$store.commit('setShowGraph', !$store.state.showGraph)"
             :class="this.$store.state.showGraph ? 'bg-red-700' : ''">
             <!-- <Icon icon="bi:graph-up-arrow" width="20"></Icon> -->
@@ -197,7 +197,7 @@
               </g>
             </svg>
           </button></div>
-        <div><button class="hidden md:flex float-right btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        <div><button class="md:flex float-right btn right-5 top-28 md:top-44 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
             @click="$store.commit('setShowHistory', !$store.state.showHistory)"
             :class="this.$store.state.showHistory ? 'bg-red-700' : ''">
             <!-- <Icon icon="jam:messages-alt" width="20"></Icon> -->
@@ -221,7 +221,7 @@
               </g>
             </svg>
           </button></div>
-        <div><button class="hidden md:flex float-right btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
+        <div><button class="md:flex float-right btn right-5 top-32 md:top-56 w-7 h-7 sm:w-10 sm:h-10 btn-circle"
             @click="$store.commit('setShowChart', !$store.state.showChart)"
             :class="this.$store.state.showChart ? 'bg-red-700' : ''">
             <!-- <Icon icon="ant-design:pie-chart-outlined" width="20"></Icon> -->
@@ -3100,14 +3100,6 @@ button.mat-menu-item {
   }
 }
 
-@media (max-height: 568px) {
-  .win-numbers {
-    margin-top: -60px;
-  }
-
-  /* Your Styles... */
-}
-
 @media screen and (orientation: portrait) {
   .message-dialog .mat-dialog-container {
     margin-top: -45vh;
@@ -3117,4 +3109,30 @@ button.mat-menu-item {
     font-size: -0.5em;
   }
 }
+
+@media screen and (orientation: portrait) {
+  .win-numbers-mt {
+    margin-top:calc(15vw/1.7778 * 1.5);
+  }
+  .win-number {
+    height: calc(10vw/1.7778 * 0.5);
+    width: calc(10vw/1.7778 * 0.5);
+    font-size: calc(10vw/1.7778 * 0.3);
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .win-numbers-mt {
+    margin-top:20vh;
+  }
+  .win-number {
+    height: calc(10vw/1.7778 * 0.5);
+    width: calc(10vw/1.7778 * 0.5);
+    font-size:calc(10vw/1.7778 * 0.3)
+  }
+}
+.panno-box {
+  margin-top:25%;
+}
+
 </style>

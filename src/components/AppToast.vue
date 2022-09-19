@@ -1,5 +1,5 @@
 <template>
-    <div class="app-toast  w-3/4 md:w-1/3    flex-col items-between hidden md:flex"
+    <div class="app-toast w-1/3 flex-col items-between"
         :class="message == '' ? 'justify-center' : 'justify-between'" v-if="showMessage">
         <div class="pr-8 w-full text-right">
             <h3 class="md:text-xl font-bold">{{ title }}</h3>
@@ -57,7 +57,21 @@ export default {
     animation: 7s ease 0s normal forwards 1 toast;
 }
 
+@media screen and (orientation: portrait) {
+  .app-toast
+ {
+    height:calc(10vw/1.7778 * 1.5);
+    margin-top: 4vw;
+  }
+}
 
+@media screen and (orientation: landscape) {
+  .app-toast
+ {
+    height:15vh;
+    margin-top:6vh;
+  }
+}
 
 @keyframes toast {
     0% {

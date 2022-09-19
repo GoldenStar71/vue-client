@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div _ngcontent-bdp-c0="" id="panno" class="hidden md:block">
+    <div _ngcontent-bdp-c0="" id="panno" xclass="hidden md:block">
       <svg
         id="drawPanno"
         width="100%"
@@ -307,7 +307,7 @@
       </svg>
     </div>
     <!-- mobile design -->
-    <div
+    <!-- <div
       _ngcontent-bdp-c0=""
       id="panno"
       class="mobile-panno md:hidden absolute"
@@ -617,7 +617,7 @@
           </text>
         </g>
       </svg>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>

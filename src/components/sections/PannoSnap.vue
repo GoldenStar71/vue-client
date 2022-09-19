@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div _ngcontent-bdp-c0="" id="snap" class="hidden md:block">
+    <div _ngcontent-bdp-c0="" id="snap" xclass="hidden md:block">
       <svg id="drawSnap" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 1400 580"
         style="transform-origin: 20% center; transform: perspective(50em) rotateX(40deg)">

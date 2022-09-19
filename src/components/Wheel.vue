@@ -1,10 +1,10 @@
 <template>
   <div class="wheel-box">
-    <div id="overlay-wheel" class="w-20 h-20 md:w-24 md:h-24" style="visibility: visible; display: block"></div>
+    <div id="overlay-wheel" xclass="w-20 h-20 md:w-24 md:h-24" style="visibility: visible; display: block;"></div>
     <div
       id="window-wheel"
-      class="w-20 h-20 md:w-24 md:h-24"
-      style="visibility: visible; box-shadow: rgb(0, 0, 0) 0px 0px 20px"
+      xclass="w-20 h-20 md:w-24 md:h-24"
+      style="visibility: visible; box-shadow: rgb(0, 0, 0) 0px 0px 20px;"
     >
       <div id="wheel" v-show="!wait">
         <svg
@@ -654,8 +654,8 @@
           </g>
         </svg>
       </div>
-      <h3 v-show="wait && !nobet" class="-top-[20%] text-sm lg:text-lg leading-4 md:leading-6	" >
-        NO MORE 
+      <h3 v-show="wait && !nobet" class="-top-[20%] items-center leading-4" style="font-size: 1vh;">
+        NO MORE
         BETS
       </h3>
      
@@ -840,6 +840,20 @@ export default Vue.extend({
 
 #window-wheel #wheel svg text {
   font-family: Montserrat, sans-serif !important;
+}
+
+@media screen and (orientation: portrait) {
+  #overlay-wheel, #window-wheel {
+    height:calc(10vw/1.7778 * 1.5); width:calc(10vw/1.7778 * 1.5);
+    margin-top: 5vw;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  #overlay-wheel, #window-wheel {
+    height:15vh;width:15vh;
+    margin-top:6vh;
+  }
 }
 
 </style>

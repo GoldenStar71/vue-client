@@ -1,5 +1,5 @@
 <template>
-  <div id="counter" class="w-20 h-20 md:w-24 md:h-24">
+  <div id="counter" xclass="w-20 h-20 md:w-24 md:h-24">
     <svg
       id="SvgjsSvg1704"
       width="100%"
@@ -154,6 +154,20 @@ export default {
 
 .roulette-right #counter {
   margin-left: 26% !important;
+}
+
+@media screen and (orientation: portrait) {
+  #counter {
+    height:calc(10vw/1.7778 * 1.5); width:calc(10vw/1.7778 * 1.5);
+    margin-top: 5vw;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  #counter {
+    height:15vh;width:15vh;
+    margin-top:6vh;
+  }
 }
 
 

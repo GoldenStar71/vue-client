@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="mlc-container desktop BETTIME roulette-left"> -->
 
-  <div class="panno absolute overflow-hidden h-full w-full top-0 left-0 right-0 bottom-0">
+  <div class="panno relative overflow-hidden h-full w-full">
     <SettingDialog v-if="$store.state.activeTab !== ''" :activeTab="$store.state.activeTab"></SettingDialog>
 
     <div class="w-full h-full flex md:items-center justify-center relative">
@@ -10,8 +10,8 @@
         class="nano-video  relative z-0 w-full h-full items-start flex md:items-center justify-center "
         :class="(($store.state.roundStatus !== 'started') ? 'origin-top-left -mt-[60%]  scale-[200%] md:scale-100 md:flex md:-mt-[8.5%] ' : 'md:-mt-[8.5%] ')">
       </div>
-
     </div>
+    
       <div class="mlc-header z-50 absolute top-0 sm:block">
         <!---->
         <div class="ng-star-inserted">
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="absolute top-0 w-full h-full  items-center justify-center hidden md:flex ">
+      <div class="absolute top-0 w-full h-full  items-center justify-center">
         <img src='/assets/panel.png' alt='banner' class=" z-0 w-full pointer-events-none	" />
       </div>
       <LoginView
@@ -1494,7 +1494,7 @@ button {
   }
 
   .infogioco .dati-gioco p {
-    font-size: 1.85vw;
+    /* font-size: 1.85vw; */
   }
 
   .infogioco .dati-gioco p span {
@@ -1510,7 +1510,7 @@ button {
   }
 
   .infogioco .dati-gioco #eventId {
-    font-size: 1.85vw;
+    /* font-size: 1.85vw; */
   }
 
   .infogioco .tooltip-datigioco {

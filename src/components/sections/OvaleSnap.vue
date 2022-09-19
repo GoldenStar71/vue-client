@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div _ngcontent-bdp-c0="" id="ovalesnap" class="hidden md:block">
+    <div _ngcontent-bdp-c0="" id="ovalesnap" xclass="hidden md:block">
       <svg id="drawOvalesnap" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" version="1.1"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 1400 700"
         style="transform-origin: 20% center; transform: perspective(50em) rotateX(40deg)">
@@ -101,7 +101,7 @@
       </svg>
     </div>
     <!-- mobile -->
-    <div _ngcontent-bdp-c0="" id="ovalesnap" class="md:hidden mobile-ovale-snap absolute">
+    <!-- <div _ngcontent-bdp-c0="" id="ovalesnap" class="md:hidden mobile-ovale-snap absolute">
       <svg id="drawOvalesnap" width="80vh" height="40vw" xmlns="http://www.w3.org/2000/svg" version="1.1"
         xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" viewBox="0 0 1400 290">
         <g>
@@ -199,7 +199,7 @@
             class="ovale-snap-point" bet_list="o3 o26 o0 o32 o15 PL3 PL26 PL0 PL32 PL15"></path>
         </g>
       </svg>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
