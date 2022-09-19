@@ -62,7 +62,7 @@
       </div>
     </div>
     <!-- coin tool bar -->
-    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center flex coin-toolbar-open" :xclass="
+    <div class="coin-toolbar absolute pb-2 md:pr-3  w-full items-end justify-center flex" :class="
       this.$store.state.roundStatus == 'started'
         ? 'coin-toolbar-open'
         : 'coin-toolbar-close hidden'
